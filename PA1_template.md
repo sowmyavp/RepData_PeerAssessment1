@@ -4,6 +4,13 @@ output:
   html_document: 
     keep_md: yes
 ---
+
+
+```r
+library(knitr)
+opts_chunk$set(dev="png")
+```
+
 ## Loading and preprocessing the data
 
 **1. Loading the data**
