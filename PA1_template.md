@@ -56,7 +56,7 @@ avgstepsperday <- aggregate(steps ~ interval, activitydata, FUN = mean)
 plot(avgstepsperday$interval, avgstepsperday$steps, type = "l", col = "Brown", lwd = 2, xlab = "5-minute intervals", ylab = "Average number of steps", main = "Average daily activity pattern")
 ```
 
-![](PA1_template_files/figure-html/Time series plot-1.png?raw=true)<!-- -->
+![](PA1_template_files/figure-html/Time series plot-1.png)<!-- -->
 
 ```r
 maxstepsinterval <- avgstepsperday$interval[which.max(avgstepsperday$steps)]
