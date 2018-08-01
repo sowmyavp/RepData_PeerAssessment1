@@ -28,7 +28,7 @@ activitydata$date <- as.POSIXct(activitydata$date, format = "%Y-%m-%d")
 
 ## Histogram of total number of steps taken each day.
 
-```{r total number of steps taken each day}
+```{r}
 stepsperday <- aggregate(steps ~ date, activitydata, FUN = sum)
 hist(stepsperday$steps, col = "gray", xlab = "Number of steps", ylab = "Frequency", main = "Total number of steps taken per day")
 stepsmean <- mean(stepsperday$steps, na.rm = TRUE)
@@ -41,7 +41,7 @@ stepsmedian <- median(stepsperday$steps, na.rm = TRUE)
 
 ## Time series plot
 
-```{r Time series plot}
+```{r}
 avgstepsperday <- aggregate(steps ~ interval, activitydata, FUN = mean)
 plot(avgstepsperday$interval, avgstepsperday$steps, type = "l", col = "Brown", lwd = 2, xlab = "5-minute intervals", ylab = "Average number of steps", main = "Average daily activity pattern")
 maxstepsinterval <- avgstepsperday$interval[which.max(avgstepsperday$steps)]
@@ -66,7 +66,7 @@ imp_activitydata$steps[is.na(imp_activitydata$steps)] = avgstepsperday$steps[mat
 head(imp_activitydata)
 ```
 
-```{r Total number of steps taken per day (Imputed data)}
+```{r}
 imp_stepsperday <- aggregate(steps ~ date, imp_activitydata, FUN = sum)
 hist(imp_stepsperday$steps, col = "purple", xlab = "Number of steps", ylab = "Frequency", main = "Total number of steps taken per day (Imputed data)")
 imp_stepsmean <- mean(imp_stepsperday$steps, na.rm = TRUE)
@@ -83,7 +83,7 @@ imp_stepsmedian <- median(imp_stepsperday$steps, na.rm = TRUE)
 
 ## Differences in activity patterns between weekdays and weekends
 
-```{r patterns between weekdays and weekends}
+```{r}
 library(dplyr)
 library(lattice)
 week_activitydata <- imp_activitydata %>%

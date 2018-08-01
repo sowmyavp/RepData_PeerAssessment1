@@ -37,7 +37,7 @@ stepsperday <- aggregate(steps ~ date, activitydata, FUN = sum)
 hist(stepsperday$steps, col = "gray", xlab = "Number of steps", ylab = "Frequency", main = "Total number of steps taken per day")
 ```
 
-![](PA1_template_files/figure-html/total number of steps taken each day-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ```r
 stepsmean <- mean(stepsperday$steps, na.rm = TRUE)
@@ -56,7 +56,7 @@ avgstepsperday <- aggregate(steps ~ interval, activitydata, FUN = mean)
 plot(avgstepsperday$interval, avgstepsperday$steps, type = "l", col = "Brown", lwd = 2, xlab = "5-minute intervals", ylab = "Average number of steps", main = "Average daily activity pattern")
 ```
 
-![](PA1_template_files/figure-html/Time series plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 ```r
 maxstepsinterval <- avgstepsperday$interval[which.max(avgstepsperday$steps)]
@@ -99,7 +99,7 @@ imp_stepsperday <- aggregate(steps ~ date, imp_activitydata, FUN = sum)
 hist(imp_stepsperday$steps, col = "purple", xlab = "Number of steps", ylab = "Frequency", main = "Total number of steps taken per day (Imputed data)")
 ```
 
-![](PA1_template_files/figure-html/Total number of steps taken per day (Imputed data)-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 ```r
 imp_stepsmean <- mean(imp_stepsperday$steps, na.rm = TRUE)
@@ -147,4 +147,4 @@ week_stepsperday <- aggregate(steps ~ interval + daytype, week_activitydata, FUN
 xyplot(steps ~ interval | daytype, week_stepsperday, type="l", lwd=2, xlab="Interval", ylab="Number of steps", layout=c(1,2))
 ```
 
-![](PA1_template_files/figure-html/patterns between weekdays and weekends-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
